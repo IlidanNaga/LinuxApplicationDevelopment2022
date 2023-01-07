@@ -95,6 +95,7 @@ void delete_lines(struct file_lines flines) {
   for(int i = 0; i < flines.n_lines; i++) {
     free(flines.lines[i]);
   } 
+  free(flines.lines);
 }
 
 int main(int argc, char *argv[]) {

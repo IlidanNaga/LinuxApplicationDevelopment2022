@@ -56,6 +56,17 @@ bool argparse(int argc, char *argv[], int *start, int *stop, int *step) {
 };
 
 int main(int argc, char *argv[]) {
+
+  if (argc == 1) {
+    printf("You have to pass different number of parameters Program behaviour "
+           "in different cases would be:\n");
+    printf("One parameter N : returns sequence [0, 1, 2, ..., N-1]\n");
+    printf("Two parameters M, N : returns sequence [M, M+1, M+2, ..., N-1]\n");
+    printf("Three parameters M, N, S : returns sequence [M, M+S, M+2S, ..., "
+           "N-1]\n");
+    return 0;
+  }
+
   range I;
 
   if (!argparse(argc, argv, &I.start, &I.stop, &I.step)) {

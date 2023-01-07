@@ -61,12 +61,15 @@ int main(int argc, char *argv[]) {
     char *res = replace_match(argv[3], argv[2], pmatch[0]);
     printf("%s\n", res);
     free(res);
+    regfree(&preg);
   } else if (reti == REG_NOMATCH) {
     printf("%s\n", argv[3]);
+    regfree(&preg);
   } else {
     char errbuf[128];
     regerror(reti, &preg, errbuf, sizeof(errbuf));
     fprintf(stderr, "Regex match failed: %s\n", errbuf);
+    regfree(&preg);
     exit(1);
   }
 
